@@ -1,0 +1,702 @@
+/* =====================================================
+   LOGIN.CSS - PART 1
+===================================================== */
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #0F172A 0%,
+        #1E3A8A 45%,
+        #2563EB 100%
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+/* =============================
+   Main Container
+============================= */
+
+.login-container{
+
+    width:92%;
+
+    max-width:1400px;
+
+    height:88vh;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+
+}
+
+/* =============================
+   Left Side
+============================= */
+
+.login-left{
+
+    padding:60px;
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    position:relative;
+
+}
+
+/* Decorative Circle */
+
+.login-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    left:-100px;
+
+}
+
+.login-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    bottom:-60px;
+
+    right:50px;
+
+}
+
+/* =============================
+   Brand
+============================= */
+
+.brand{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.logo{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    color:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    margin-bottom:25px;
+
+}
+
+.brand h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.brand p{
+
+    color:rgba(255,255,255,.8);
+
+    font-size:17px;
+
+}
+
+/* =============================
+   Hero
+============================= */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-content h2{
+
+    font-size:48px;
+
+    line-height:1.3;
+
+    margin-bottom:25px;
+
+    font-weight:700;
+
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+    color:rgba(255,255,255,.85);
+
+    line-height:1.8;
+
+}
+
+/* =============================
+   Features
+============================= */
+
+.feature-list{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:17px;
+
+}
+
+.feature i{
+
+    color:#4ADE80;
+
+    font-size:20px;
+
+}
+
+/* =====================================================
+   LOGIN.CSS - PART 2
+   Right Panel + Form + Button + Responsive
+===================================================== */
+
+/* =============================
+   Right Side
+============================= */
+
+.login-right{
+
+    background:#ffffff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+
+}
+
+/* =============================
+   Login Card
+============================= */
+
+.login-card{
+
+    width:100%;
+
+    max-width:450px;
+
+    animation:fadeIn .8s ease;
+
+}
+
+.login-card h2{
+
+    font-size:34px;
+
+    color:#0F172A;
+
+    margin-bottom:10px;
+
+}
+
+.login-card>p{
+
+    color:#64748B;
+
+    margin-bottom:35px;
+
+}
+
+/* =============================
+   Input Groups
+============================= */
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    font-weight:600;
+
+    color:#334155;
+
+    margin-bottom:10px;
+
+}
+
+.input-box{
+
+    position:relative;
+
+}
+
+.input-box i:first-child{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94A3B8;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    height:55px;
+
+    padding:0 50px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-box input:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* =============================
+   Password Eye
+============================= */
+
+.eye-btn{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    color:#64748B;
+
+    font-size:17px;
+
+}
+
+/* =============================
+   Remember Me
+============================= */
+
+.login-options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.remember-me{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    color:#475569;
+
+}
+
+.login-options a{
+
+    color:#2563EB;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.login-options a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* =============================
+   Login Button
+============================= */
+
+.login-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.login-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+
+}
+
+/* =============================
+   Spinner
+============================= */
+
+.hidden{
+
+    display:none;
+
+}
+
+/* =============================
+   Divider
+============================= */
+
+.divider{
+
+    margin:30px 0;
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+    position:relative;
+
+}
+
+.divider::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    width:30%;
+
+    height:1px;
+
+    background:#E2E8F0;
+
+}
+
+.divider::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:50%;
+
+    width:30%;
+
+    height:1px;
+
+    background:#E2E8F0;
+
+}
+
+/* =============================
+   Demo Box
+============================= */
+
+.demo-box{
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:12px;
+
+    padding:20px;
+
+}
+
+.demo-box h4{
+
+    color:#0F172A;
+
+    margin-bottom:10px;
+
+}
+
+.demo-box p{
+
+    margin:6px 0;
+
+    color:#475569;
+
+}
+
+/* =============================
+   Footer
+============================= */
+
+.login-footer{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    color:#64748B;
+
+}
+
+.login-footer small{
+
+    display:block;
+
+    margin-top:5px;
+
+}
+
+/* =============================
+   Animation
+============================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =============================
+   Responsive
+============================= */
+
+@media(max-width:992px){
+
+    .login-container{
+
+        grid-template-columns:1fr;
+
+        height:auto;
+
+        margin:30px 0;
+
+    }
+
+    .login-left{
+
+        display:none;
+
+    }
+
+    .login-right{
+
+        padding:40px 25px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .login-card h2{
+
+        font-size:28px;
+
+    }
+
+    .login-options{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .login-btn{
+
+        height:52px;
+
+    }
+
+}

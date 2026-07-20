@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Image | SmartHelmet AI</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/upload.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-helmet-safety"></i>
+
+            <h2>SmartHelmet AI</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-upload"></i>
+                Upload Image
+            </li>
+
+            <li onclick="location.href='detection.html'">
+                <i class="fa-solid fa-user-shield"></i>
+                Detection
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </li>
+
+            <li onclick="location.href='analytics.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                Analytics
+            </li>
+
+            <li onclick="location.href='settings.html'">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </li>
+
+            <li onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= Main Content ================= -->
+
+    <main class="main-content">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                >
+
+            </div>
+
+            <div class="navbar-right">
+
+                <button class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="badge">2</span>
+
+                </button>
+
+                <div class="profile">
+
+                    <img
+                        id="profileImage"
+                        src="SmartHelmet-AI\frontend\assets\images\Profile.png"
+                        alt="Profile"
+                    >
+
+                    <div>
+
+                        <h4>Safety Officer</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Upload Header -->
+
+        <section class="dashboard-header">
+
+            <h1>Upload Construction Image</h1>
+
+            <p>
+
+                Upload a construction site image to detect helmets,
+                safety vests and worker violations using AI.
+
+            </p>
+
+        </section>
+
+        <!-- Upload Section -->
+
+        <section class="upload-section">
+
+            <div class="upload-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Upload Image
+
+                </h2>
+
+                <div
+                    class="upload-area"
+                    id="dropArea"
+                >
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <h3>Drag & Drop Image Here</h3>
+
+                    <p>or</p>
+
+                    <button id="browseBtn">
+
+                        Browse Image
+
+                    </button>
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                        hidden
+                    >
+
+                </div>
+
+                <!-- Preview -->
+
+                <div
+                    class="preview-section"
+                    id="previewSection"
+                    style="display:none;"
+                >
+
+                    <img
+                        id="previewImage"
+                        src=""
+                        alt="Preview"
+                    >
+
+                </div>
+
+                                <!-- ================= Image Details ================= -->
+
+                <div class="image-details">
+
+                    <div class="detail-card">
+
+                        <h3>
+
+                            <i class="fa-solid fa-image"></i>
+
+                            Image Information
+
+                        </h3>
+
+                        <div class="detail-item">
+
+                            <span>Filename</span>
+
+                            <strong id="fileName">No file selected</strong>
+
+                        </div>
+
+                        <div class="detail-item">
+
+                            <span>File Size</span>
+
+                            <strong id="fileSize">--</strong>
+
+                        </div>
+
+                        <div class="detail-item">
+
+                            <span>Resolution</span>
+
+                            <strong id="fileResolution">--</strong>
+
+                        </div>
+
+                        <div class="detail-item">
+
+                            <span>Upload Time</span>
+
+                            <strong id="uploadTime">--</strong>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ================= Detection Settings ================= -->
+
+                    <div class="detail-card">
+
+                        <h3>
+
+                            <i class="fa-solid fa-sliders"></i>
+
+                            Detection Options
+
+                        </h3>
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                checked
+                                id="helmetDetection"
+                            >
+
+                            Helmet Detection
+
+                        </label>
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                checked
+                                id="vestDetection"
+                            >
+
+                            Safety Vest Detection
+
+                        </label>
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                checked
+                                id="workerDetection"
+                            >
+
+                            Worker Detection
+
+                        </label>
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                checked
+                                id="personCount"
+                            >
+
+                            Person Counting
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Confidence ================= -->
+
+                <div class="confidence-card">
+
+                    <h3>
+
+                        Confidence Threshold
+
+                    </h3>
+
+                    <div class="slider-container">
+
+                        <input
+                            type="range"
+                            id="confidenceSlider"
+                            min="10"
+                            max="100"
+                            value="70"
+                        >
+
+                        <span id="confidenceValue">
+
+                            70%
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Buttons ================= -->
+
+                <div class="upload-buttons">
+
+                    <button
+                        class="secondary-btn"
+                        id="clearBtn"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Clear
+
+                    </button>
+
+                    <button
+                        class="primary-btn"
+                        id="uploadBtn"
+                    >
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                        Upload & Detect
+
+                    </button>
+
+                </div>
+
+                <!-- ================= Progress ================= -->
+
+                <div
+                    class="progress-section"
+                    id="progressSection"
+                    style="display:none;"
+                >
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill"
+                        ></div>
+
+                    </div>
+
+                    <p id="progressText">
+
+                        Uploading...
+
+                    </p>
+
+                </div>
+
+                <!-- ================= Status ================= -->
+
+                <div class="status-card">
+
+                    <h3>
+
+                        Detection Status
+
+                    </h3>
+
+                    <div
+                        class="status waiting"
+                        id="statusText"
+                    >
+
+                        Waiting for image...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- JavaScript -->
+
+<script src="../js/dashboard.js"></script>
+
+<script src="../js/upload.js"></script>
+
+</body>
+
+</html>

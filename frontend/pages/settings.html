@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | SmartHelmet AI</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-helmet-safety"></i>
+
+            <h2>SmartHelmet AI</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="location.href='upload.html'">
+                <i class="fa-solid fa-upload"></i>
+                Upload Image
+            </li>
+
+            <li onclick="location.href='detection.html'">
+                <i class="fa-solid fa-user-shield"></i>
+                Detection
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </li>
+
+            <li onclick="location.href='analytics.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                Analytics
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </li>
+
+            <li onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search settings..."
+                >
+
+            </div>
+
+            <div class="navbar-right">
+
+                <button class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="badge">2</span>
+
+                </button>
+
+                <div class="profile">
+
+                    <img
+                        id="profileImage"
+                        src="SmartHelmet-AI\frontend\assets\images\Profile.png"
+                        alt="Profile"
+                    >
+
+                    <div>
+
+                        <h4>Safety Officer</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Header -->
+
+        <section class="dashboard-header">
+
+            <h1>
+
+                Settings
+
+            </h1>
+
+            <p>
+
+                Manage your SmartHelmet AI application preferences.
+
+            </p>
+
+        </section>
+
+        <!-- Settings Grid -->
+
+        <section class="settings-grid">
+
+            <!-- Profile Settings -->
+
+            <div class="settings-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Profile Settings
+
+                </h2>
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        value="Safety Officer"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        value="admin@smarthelmet.ai"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        value="+91 9876543210"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- Appearance -->
+
+            <div class="settings-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-palette"></i>
+
+                    Appearance
+
+                </h2>
+
+                <div class="form-group">
+
+                    <label>Theme</label>
+
+                    <select id="theme">
+
+                        <option>Light</option>
+
+                        <option>Dark</option>
+
+                        <option>System</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Language</label>
+
+                    <select id="language">
+
+                        <option>English</option>
+
+                        <option>Telugu</option>
+
+                        <option>Hindi</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+                    <!-- ================= Notification Settings ================= -->
+
+            <div class="settings-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    Notification Settings
+
+                </h2>
+
+                <label class="switch-item">
+
+                    <span>Email Notifications</span>
+
+                    <input
+                        type="checkbox"
+                        id="emailNotification"
+                        checked
+                    >
+
+                </label>
+
+                <label class="switch-item">
+
+                    <span>SMS Notifications</span>
+
+                    <input
+                        type="checkbox"
+                        id="smsNotification"
+                    >
+
+                </label>
+
+                <label class="switch-item">
+
+                    <span>Safety Alerts</span>
+
+                    <input
+                        type="checkbox"
+                        id="safetyAlerts"
+                        checked
+                    >
+
+                </label>
+
+                <label class="switch-item">
+
+                    <span>Weekly Reports</span>
+
+                    <input
+                        type="checkbox"
+                        id="weeklyReports"
+                        checked
+                    >
+
+                </label>
+
+            </div>
+
+            <!-- ================= Change Password ================= -->
+
+            <div class="settings-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Change Password
+
+                </h2>
+
+                <div class="form-group">
+
+                    <label>Current Password</label>
+
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        placeholder="Enter current password"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>New Password</label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Enter new password"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm new password"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Buttons ================= -->
+
+        <section class="settings-actions">
+
+            <button
+                class="primary-btn"
+                id="saveSettings"
+            >
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Settings
+
+            </button>
+
+            <button
+                class="secondary-btn"
+                id="resetSettings"
+            >
+
+                <i class="fa-solid fa-rotate-left"></i>
+
+                Reset
+
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- JavaScript -->
+
+<script src="../js/dashboard.js"></script>
+
+<script src="../js/settings.js"></script>
+
+</body>
+
+</html>

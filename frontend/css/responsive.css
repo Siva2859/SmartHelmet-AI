@@ -1,0 +1,549 @@
+/* =====================================================
+   RESPONSIVE.CSS - PART 1
+===================================================== */
+
+/* ---------- Large Desktop (1400px+) ---------- */
+
+@media screen and (min-width:1400px){
+
+    .main-content{
+
+        padding:35px;
+
+    }
+
+    .stats-cards{
+
+        grid-template-columns:repeat(4,1fr);
+
+    }
+
+}
+
+/* ---------- Laptop (1200px) ---------- */
+
+@media screen and (max-width:1200px){
+
+    .stats-cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .analytics-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .bottom-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ---------- Tablet Landscape ---------- */
+
+@media screen and (max-width:992px){
+
+    .sidebar{
+
+        transform:translateX(-100%);
+
+        transition:.35s;
+
+    }
+
+    .sidebar.active{
+
+        transform:translateX(0);
+
+    }
+
+    .main-content{
+
+        margin-left:0;
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .navbar{
+
+        padding:20px;
+
+    }
+
+    .search-box{
+
+        width:280px;
+
+    }
+
+    .stats-cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* ---------- Tablet Portrait ---------- */
+
+@media screen and (max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+        height:auto;
+
+    }
+
+    .navbar-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .dashboard-header h1{
+
+        font-size:28px;
+
+    }
+
+    .dashboard-header p{
+
+        font-size:15px;
+
+    }
+
+    .stats-cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dashboard-grid,
+
+    .analytics-section,
+
+    .bottom-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .table-responsive{
+
+        overflow-x:auto;
+
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media screen and (max-width:576px){
+
+    .main-content{
+
+        padding:15px;
+
+    }
+
+    .dashboard-header{
+
+        margin-bottom:25px;
+
+    }
+
+    .dashboard-header h1{
+
+        font-size:24px;
+
+    }
+
+    .dashboard-header p{
+
+        font-size:14px;
+
+    }
+
+    .navbar{
+
+        padding:15px;
+
+    }
+
+    .profile h4{
+
+        font-size:14px;
+
+    }
+
+    .profile small{
+
+        font-size:11px;
+
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE.CSS - PART 2
+===================================================== */
+
+/* ---------- Small Mobile (480px) ---------- */
+
+@media screen and (max-width:480px){
+
+    .main-content{
+
+        padding:12px;
+
+    }
+
+    .navbar{
+
+        padding:12px;
+
+        border-radius:12px;
+
+    }
+
+    .dashboard-header h1{
+
+        font-size:22px;
+
+    }
+
+    .dashboard-header p{
+
+        font-size:13px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .card-icon{
+
+        width:55px;
+
+        height:55px;
+
+        font-size:22px;
+
+    }
+
+    .card-info h2{
+
+        font-size:24px;
+
+    }
+
+    .card-info p{
+
+        font-size:13px;
+
+    }
+
+    .upload-card,
+
+    .summary-card,
+
+    .analytics-card,
+
+    .table-card,
+
+    .activity-card,
+
+    .system-card{
+
+        padding:18px;
+
+    }
+
+}
+
+/* ---------- Extra Small Devices ---------- */
+
+@media screen and (max-width:360px){
+
+    .logo h2{
+
+        font-size:18px;
+
+    }
+
+    .profile img{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .profile h4{
+
+        font-size:13px;
+
+    }
+
+    .profile small{
+
+        display:none;
+
+    }
+
+    .notification{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+}
+
+/* ---------- Responsive Table ---------- */
+
+.table-responsive{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+.table-responsive table{
+
+    min-width:800px;
+
+}
+
+/* ---------- Responsive Chart ---------- */
+
+.chart-container{
+
+    overflow-x:auto;
+
+}
+
+.chart-container canvas{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/* ---------- Upload Preview ---------- */
+
+.upload-preview img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/* ---------- Notification Dropdown ---------- */
+
+@media(max-width:768px){
+
+    .notification-menu{
+
+        width:300px;
+
+        right:0;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .notification-menu{
+
+        width:100%;
+
+        left:0;
+
+        right:0;
+
+        border-radius:12px;
+
+    }
+
+}
+
+/* ---------- Profile Dropdown ---------- */
+
+@media(max-width:480px){
+
+    .profile-dropdown{
+
+        width:100%;
+
+        left:0;
+
+        right:0;
+
+        border-radius:12px;
+
+    }
+
+}
+
+/* ---------- Buttons ---------- */
+
+button{
+
+    max-width:100%;
+
+}
+
+.quick-actions{
+
+    flex-wrap:wrap;
+
+}
+
+.quick-actions button{
+
+    flex:1 1 180px;
+
+}
+
+/* ---------- Images ---------- */
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/* ---------- Smooth Transitions ---------- */
+
+*{
+
+    transition:
+
+    background-color .3s,
+
+    color .3s,
+
+    border-color .3s,
+
+    box-shadow .3s,
+
+    transform .3s;
+
+}
+
+/* ---------- Utility Classes ---------- */
+
+.hide-mobile{
+
+    display:block;
+
+}
+
+.show-mobile{
+
+    display:none;
+
+}
+
+@media(max-width:768px){
+
+    .hide-mobile{
+
+        display:none;
+
+    }
+
+    .show-mobile{
+
+        display:block;
+
+    }
+
+}
+
+/* ---------- Landscape Phones ---------- */
+
+@media screen and (max-height:500px){
+
+    .sidebar{
+
+        overflow-y:auto;
+
+    }
+
+}
+
+/* ---------- Print ---------- */
+
+@media print{
+
+    .sidebar,
+
+    .navbar,
+
+    .notification-menu,
+
+    .profile-dropdown,
+
+    .logout-btn{
+
+        display:none !important;
+
+    }
+
+    .main-content{
+
+        margin:0;
+
+        padding:0;
+
+    }
+
+    body{
+
+        background:#ffffff;
+
+    }
+
+}

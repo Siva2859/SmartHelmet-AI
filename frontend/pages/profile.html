@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | SmartHelmet AI</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-helmet-safety"></i>
+
+            <h2>SmartHelmet AI</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="location.href='upload.html'">
+                <i class="fa-solid fa-upload"></i>
+                Upload Image
+            </li>
+
+            <li onclick="location.href='detection.html'">
+                <i class="fa-solid fa-user-shield"></i>
+                Detection
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </li>
+
+            <li onclick="location.href='analytics.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                Analytics
+            </li>
+
+            <li onclick="location.href='settings.html'">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search profile..."
+                >
+
+            </div>
+
+            <div class="navbar-right">
+
+                <button class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="badge">2</span>
+
+                </button>
+
+                <div class="profile">
+
+                    <img
+                        id="navbarProfile"
+                        src="SmartHelmet-AI\frontend\assets\images\Profile.png"
+                        alt="Profile"
+                    >
+
+                    <div>
+
+                        <h4>Safety Officer</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Page Header -->
+
+        <section class="dashboard-header">
+
+            <h1>My Profile</h1>
+
+            <p>
+
+                Manage your SmartHelmet AI account information.
+
+            </p>
+
+        </section>
+
+        <!-- Profile Grid -->
+
+        <section class="profile-grid">
+
+            <!-- Left -->
+
+            <div class="profile-card">
+
+                <img
+                    id="profileImage"
+                    src="SmartHelmet-AI\frontend\assets\images\Profile.png"
+                    alt="Profile"
+                >
+
+                <input
+
+                    type="file"
+
+                    id="profileUpload"
+
+                    accept="image/*"
+
+                    hidden
+
+                >
+
+                <button
+                    id="changePhoto"
+                    class="primary-btn"
+                >
+
+                    <i class="fa-solid fa-camera"></i>
+
+                    Change Photo
+
+                </button>
+
+                <h2 id="profileName">
+
+                    Safety Officer
+
+                </h2>
+
+                <p>
+
+                    Construction Site Administrator
+
+                </p>
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="profile-details">
+
+                <div class="profile-section">
+
+                    <h2>
+
+                        Personal Information
+
+                    </h2>
+
+                    <div class="form-group">
+
+                        <label>Full Name</label>
+
+                        <input
+
+                            id="fullName"
+
+                            type="text"
+
+                            value="Safety Officer"
+
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input
+
+                            id="email"
+
+                            type="email"
+
+                            value="admin@smarthelmet.ai"
+
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Phone</label>
+
+                        <input
+
+                            id="phone"
+
+                            type="text"
+
+                            value="+91 9876543210"
+
+                        >
+
+                    </div>
+
+                </div>
+
+                                <!-- ================= Organization ================= -->
+
+                <div class="profile-section">
+
+                    <h2>
+
+                        Organization Information
+
+                    </h2>
+
+                    <div class="form-group">
+
+                        <label>Organization</label>
+
+                        <input
+                            type="text"
+                            id="organization"
+                            value="SmartHelmet AI"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Role</label>
+
+                        <input
+                            type="text"
+                            id="role"
+                            value="Construction Site Administrator"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Location</label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            value="Hyderabad, India"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Account Statistics ================= -->
+
+                <div class="profile-section">
+
+                    <h2>
+
+                        Account Statistics
+
+                    </h2>
+
+                    <div class="stats-grid">
+
+                        <div class="stat-box">
+
+                            <h3 id="imagesUploaded">
+
+                                245
+
+                            </h3>
+
+                            <p>Images Uploaded</p>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <h3 id="detectionsCompleted">
+
+                                192
+
+                            </h3>
+
+                            <p>Detections</p>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <h3 id="reportsGenerated">
+
+                                84
+
+                            </h3>
+
+                            <p>Reports</p>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <h3 id="accuracyRate">
+
+                                96%
+
+                            </h3>
+
+                            <p>AI Accuracy</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Security ================= -->
+
+                <div class="profile-section">
+
+                    <h2>
+
+                        Security
+
+                    </h2>
+
+                    <div class="security-item">
+
+                        <span>Password</span>
+
+                        <button
+                            class="secondary-btn"
+                            id="changePassword"
+                        >
+
+                            Change Password
+
+                        </button>
+
+                    </div>
+
+                    <div class="security-item">
+
+                        <span>Two-Factor Authentication</span>
+
+                        <button
+                            class="secondary-btn"
+                            id="enable2FA"
+                        >
+
+                            Enable
+
+                        </button>
+
+                    </div>
+
+                    <div class="security-item">
+
+                        <span>Last Login</span>
+
+                        <strong>
+
+                            Today • 10:45 AM
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Buttons ================= -->
+
+                <div class="profile-actions">
+
+                    <button
+                        class="primary-btn"
+                        id="saveProfile"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Profile
+
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        id="logoutBtn"
+                    >
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- JavaScript -->
+
+<script src="../js/dashboard.js"></script>
+
+<script src="../js/profile.js"></script>
+
+</body>
+
+</html>

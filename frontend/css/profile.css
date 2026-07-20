@@ -1,0 +1,508 @@
+/* =====================================================
+   PROFILE.CSS - PART 1
+===================================================== */
+
+/* ---------- Profile Grid ---------- */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    gap:30px;
+
+    margin-top:30px;
+
+}
+
+/* ---------- Left Card ---------- */
+
+.profile-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.profile-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.profile-card img{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.profile-card h2{
+
+    color:#0F172A;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+}
+
+.profile-card p{
+
+    color:#64748B;
+
+    margin-bottom:25px;
+
+}
+
+/* ---------- Profile Details ---------- */
+
+.profile-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/* ---------- Section ---------- */
+
+.profile-section{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.profile-section h2{
+
+    color:#0F172A;
+
+    margin-bottom:25px;
+
+    font-size:22px;
+
+}
+
+/* ---------- Form ---------- */
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+.form-group:last-child{
+
+    margin-bottom:0;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#475569;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.form-group input:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/* =====================================================
+   PROFILE.CSS - PART 2
+   Statistics + Security + Buttons + Responsive
+===================================================== */
+
+
+/* ---------- Statistics Grid ---------- */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+/* ---------- Statistics Box ---------- */
+
+.stat-box{
+
+    background:#F8FAFC;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border:1px solid #E2E8F0;
+
+    transition:.3s;
+
+}
+
+
+.stat-box:hover{
+
+    transform:translateY(-5px);
+
+    background:#EFF6FF;
+
+}
+
+
+.stat-box h3{
+
+    color:#2563EB;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+
+.stat-box p{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+
+/* ---------- Security Section ---------- */
+
+.security-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+
+.security-item:last-child{
+
+    border-bottom:none;
+
+}
+
+
+.security-item span{
+
+    color:#475569;
+
+    font-weight:500;
+
+}
+
+
+.security-item strong{
+
+    color:#0F172A;
+
+}
+
+
+/* ---------- Profile Actions ---------- */
+
+.profile-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:20px;
+
+    margin-top:25px;
+
+}
+
+
+/* ---------- Primary Button ---------- */
+
+.primary-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 26px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.primary-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ---------- Secondary Button ---------- */
+
+.secondary-btn{
+
+    background:white;
+
+    color:#475569;
+
+    border:1px solid #CBD5E1;
+
+    padding:14px 26px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.secondary-btn:hover{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    border-color:#2563EB;
+
+}
+
+
+/* ---------- Animation ---------- */
+
+.fade{
+
+    animation:fade .4s ease;
+
+}
+
+
+@keyframes fade{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ---------- Responsive ---------- */
+
+
+@media(max-width:1200px){
+
+
+    .stats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:992px){
+
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .profile-card{
+
+        max-width:400px;
+
+        margin:auto;
+
+    }
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .profile-actions{
+
+        flex-direction:column;
+
+    }
+
+
+    .primary-btn,
+
+    .secondary-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+
+    .security-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .profile-card,
+
+    .profile-section{
+
+        padding:20px;
+
+    }
+
+
+    .profile-card img{
+
+        width:140px;
+
+        height:140px;
+
+    }
+
+
+    .profile-section h2{
+
+        font-size:20px;
+
+    }
+
+
+}

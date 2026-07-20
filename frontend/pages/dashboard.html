@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHelmet AI | Dashboard</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-helmet-safety"></i>
+
+            <h2>SmartHelmet AI</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active" onclick="location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </li>
+
+            <li onclick="location.href='upload.html'">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Upload Image
+
+            </li>
+
+            <li onclick="location.href='detection.html'">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                Detection
+
+            </li>
+
+            <li onclick="location.href='reports.html'">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                Reports
+
+            </li>
+
+            <li onclick="location.href='analytics.html'">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Analytics
+
+            </li>
+
+            <li onclick="location.href='settings.html'">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </li>
+
+            <li onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= Main Content ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= Navbar ================= -->
+
+<header class="navbar">
+
+    <!-- Search Box -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="Search detections..."
+        >
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="navbar-right">
+
+        <!-- Notification -->
+
+        <div class="notification-wrapper">
+
+            <button
+                class="notification"
+                id="notificationBtn"
+            >
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="badge">3</span>
+
+            </button>
+
+            <div class="notification-menu" id="notificationMenu">
+
+            <div class="notification-header">
+                <h3>Notifications</h3>
+            </div>
+
+            <div id="notificationList">
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <strong>Worker without Helmet</strong>
+                        <p>Gate A • 2 minutes ago</p>
+                    </div>
+                </div>
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-shirt"></i>
+
+                    <div>
+                        <strong>Safety Vest Missing</strong>
+                        <p>Zone B • 5 minutes ago</p>
+                    </div>
+                </div>
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-file-circle-check"></i>
+
+                    <div>
+                        <strong>Daily Report Generated</strong>
+                        <p>Today • 09:30 AM</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+            <!-- Notification Dropdown -->
+
+            <div
+                class="notification-menu"
+                id="notificationMenu"
+            >
+
+                <h3>Notifications</h3>
+
+                <div class="notification-item">
+
+                    🟢 Helmet detection completed successfully
+
+                </div>
+
+                <div class="notification-item">
+
+                    🔴 Safety violation detected
+
+                </div>
+
+                <div class="notification-item">
+
+                    🔵 New construction image uploaded
+
+                </div>
+
+                <div class="notification-item">
+
+                    🟡 Weekly report generated
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Profile -->
+
+        <div class="profile"
+            id="profileBtn"
+            onclick="window.location.href='profile.html'"
+            style="cursor:pointer;">
+
+            <img src="SmartHelmet-AI\frontend\assets\images\Profile.png" alt="Profile">
+
+            <div>
+
+                <h4>Safety Officer</h4>
+
+                <small>Administrator</small>
+
+            </div>
+
+        </div>
+
+        <!-- Profile Dropdown -->
+
+        <div
+            class="profile-dropdown"
+            id="profileMenu"
+        >
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </a>
+
+            <a href="settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Change Password
+
+            </a>
+
+            <a href="#" onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= Dashboard Heading ================= -->
+
+<section class="dashboard-header">
+
+    <h1>Dashboard</h1>
+
+    <p>
+
+        Welcome back! Monitor construction site safety in real time.
+
+    </p>
+
+</section>
+
+
+<!-- ================= Statistics Cards ================= -->
+
+<section class="stats-cards">
+
+    <!-- Total Workers -->
+
+    <div class="card" onclick="location.href='workers.html'">
+
+        <div class="card-icon blue">
+
+            <i class="fa-solid fa-users"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h2 id="totalWorkers">156</h2>
+
+            <p>Total Workers</p>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+    </div>
+
+    <!-- Helmet Compliance -->
+
+    <div class="card" onclick="location.href='helmet.html'">
+
+        <div class="card-icon green">
+
+            <i class="fa-solid fa-helmet-safety"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h2 id="helmetCompliance">94%</h2>
+
+            <p>Helmet Compliance</p>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+    </div>
+
+    <!-- Vest Compliance -->
+
+    <div class="card" onclick="location.href='vest.html'">
+
+        <div class="card-icon orange">
+
+            <i class="fa-solid fa-vest"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h2 id="vestCompliance">89%</h2>
+
+            <p>Vest Compliance</p>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+    </div>
+
+    <!-- Safety Violations -->
+
+    <div class="card" onclick="location.href='violations.html'">
+
+        <div class="card-icon red">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h2 id="violations">12</h2>
+
+            <p>Safety Violations</p>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+    </div>
+
+    <!-- ==========================================
+        AI Detection Panel
+    ========================================== -->
+
+    <div class="detection-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                <i class="fa-solid fa-table"></i>
+
+                Detection History
+
+            </h2>
+
+            <input
+                type="text"
+                id="historySearch"
+                placeholder="Search Worker ID..."
+            >
+
+        </div>
+
+        <div class="detection-grid">
+
+            <div class="detect-box">
+
+                <h3 id="liveWorkers">0</h3>
+
+                <span>Workers</span>
+
+            </div>
+
+            <div class="detect-box">
+
+                <h3 id="liveHelmet">0</h3>
+
+                <span>Helmet</span>
+
+            </div>
+
+            <div class="detect-box">
+
+                <h3 id="liveVest">0</h3>
+
+                <span>Vest</span>
+
+            </div>
+
+            <div class="detect-box">
+
+                <h3 id="liveViolations">0</h3>
+
+                <span>Violations</span>
+
+            </div>
+
+        </div>
+
+        <div class="zone-card">
+
+            <h4>Current Zone</h4>
+
+            <span id="currentZone">
+
+                Zone A
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+        Recent Safety Alerts
+    ========================================== -->
+
+    <section class="alerts-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Recent Safety Alerts
+
+            </h2>
+
+        </div>
+
+        <div id="alertsContainer">
+
+            <!-- Alerts will be added dynamically -->
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+        Analytics Overview
+    ========================================== -->
+
+    <section class="analytics-overview">
+
+        <div class="section-header">
+
+            <h2>
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Analytics Overview
+
+            </h2>
+
+        </div>
+
+        <div class="analytics-grid">
+
+            <!-- Helmet Compliance -->
+
+            <div class="progress-card">
+
+                <h3>Helmet Compliance</h3>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill helmet-progress"
+                        id="helmetProgress"
+                        style="width:90%;"
+                    ></div>
+
+                </div>
+
+                <span id="helmetPercent">90%</span>
+
+            </div>
+
+            <!-- Vest Compliance -->
+
+            <div class="progress-card">
+
+                <h3>Vest Compliance</h3>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill vest-progress"
+                        id="vestProgress"
+                        style="width:85%;"
+                    ></div>
+
+                </div>
+
+                <span id="vestPercent">85%</span>
+
+            </div>
+
+            <!-- Today's Summary -->
+
+            <div class="summary-card">
+
+                <div>
+
+                    <h2 id="todayWorkers">124</h2>
+
+                    <p>Workers Today</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div>
+
+                    <h2 id="todayViolations">12</h2>
+
+                    <p>Violations Today</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+        Detection History
+    ========================================== -->
+
+    <section class="history-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                <i class="fa-solid fa-table"></i>
+
+                Detection History
+
+            </h2>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Time</th>
+
+                        <th>Worker ID</th>
+
+                        <th>Helmet</th>
+
+                        <th>Safety Vest</th>
+
+                        <th>Status</th>
+
+                        <th>Zone</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</section>
+<!-- ==========================================
+     Live Monitoring Section
+========================================== -->
+
+<section class="live-monitor-grid">
+
+    <!-- Live Camera -->
+
+    <div class="camera-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                <i class="fa-solid fa-video"></i>
+
+                Live Monitoring
+
+            </h2>
+
+            <span class="live-badge">
+
+                ● LIVE
+
+            </span>
+
+        </div>
+
+        <div
+            class="camera-preview"
+            id="cameraPreview"
+        >
+
+            <div class="camera-overlay">
+
+                Waiting for Camera...
+
+            </div>
+
+        </div>
+
+        <div class="camera-actions">
+
+            <button
+                class="primary-btn"
+                id="startCamera"
+            >
+
+                <i class="fa-solid fa-play"></i>
+
+                Start Camera
+
+            </button>
+
+                <button class="export-btn">
+
+        <i class="fa-solid fa-download"></i>
+
+        Export CSV
+
+    </button>
+
+        </div>
+
+    </div>
+
+    <!-- AI Status -->
+
+    <div class="system-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                AI System Status
+
+            </h2>
+
+        </div>
+
+        <div class="status-list">
+
+            <div class="status-item">
+
+                <span>YOLO Model</span>
+
+                <span class="online">
+
+                    ● Running
+
+                </span>
+
+            </div>
+
+            <div class="status-item">
+
+                <span>FastAPI Server</span>
+
+                <span class="online">
+
+                    ● Connected
+
+                </span>
+
+            </div>
+
+            <div class="status-item">
+
+                <span>SQLite Database</span>
+
+                <span class="online">
+
+                    ● Active
+
+                </span>
+
+            </div>
+
+            <div class="status-item">
+
+                <span>Camera</span>
+
+                <span
+                    id="cameraStatus"
+                    class="offline"
+                >
+
+                    ● Offline
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+</div>
+</body>
+</html>
