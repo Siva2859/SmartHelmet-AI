@@ -1,88 +1,88 @@
-# =========================
+# =====================
 # Python
-# =========================
+# =====================
 
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
+*.pyo
 
+
+# =====================
 # Virtual Environment
+# =====================
+
 venv/
 env/
-ENV/
-
-# Environment Variables
-.env
+.venv/
 
 
-# =========================
+# =====================
 # Database
-# =========================
+# =====================
 
 *.db
 *.sqlite
 *.sqlite3
 
 
-# =========================
-# FastAPI / Backend
-# =========================
-
-backend/uploads/
-backend/runs/
-
-uploads/
-runs/
-
-
-# =========================
-# Machine Learning
-# =========================
+# =====================
+# YOLO Model
+# =====================
 
 *.pt
 *.pth
-*.h5
-*.onnx
 
 
-# =========================
-# Frontend
-# =========================
+# =====================
+# Uploads
+# =====================
 
-node_modules/
-dist/
-build/
+backend/uploads/
+uploads/
 
 
-# =========================
+# =====================
+# YOLO Results
+# =====================
+
+backend/runs/
+runs/
+
+backend/results/
+results/
+
+
+# =====================
+# Cache
+# =====================
+
+.cache/
+
+
+# =====================
 # VS Code
-# =========================
+# =====================
 
 .vscode/
 
 
-# =========================
-# OS Files
-# =========================
+# =====================
+# OS
+# =====================
 
 .DS_Store
 Thumbs.db
 
 
-# =========================
-# Logs
-# =========================
+# =====================
+# Keep README Image
+# =====================
 
-*.log
-
-# Dataset
-dataset/
-
-# Training files
-*.jpg
-*.png
-*.txt
-
-# But keep project image if needed
 !image.png
 
+# YOLO training files
+runs/
+dataset/
+
+# Models
+*.pt
