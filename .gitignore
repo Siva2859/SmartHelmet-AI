@@ -1,15 +1,88 @@
+# =========================
+# Python
+# =========================
+
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Virtual Environment
 venv/
+env/
+ENV/
+
+# Environment Variables
 .env
 
-backend/uploads/
-backend/results/
+
+# =========================
+# Database
+# =========================
 
 *.db
+*.sqlite
+*.sqlite3
+
+
+# =========================
+# FastAPI / Backend
+# =========================
+
+backend/uploads/
+backend/runs/
+
+uploads/
+runs/
+
+
+# =========================
+# Machine Learning
+# =========================
+
+*.pt
+*.pth
+*.h5
+*.onnx
+
+
+# =========================
+# Frontend
+# =========================
+
+node_modules/
+dist/
+build/
+
+
+# =========================
+# VS Code
+# =========================
 
 .vscode/
 
-.idea/
+
+# =========================
+# OS Files
+# =========================
 
 .DS_Store
+Thumbs.db
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+# Dataset
+dataset/
+
+# Training files
+*.jpg
+*.png
+*.txt
+
+# But keep project image if needed
+!image.png
+

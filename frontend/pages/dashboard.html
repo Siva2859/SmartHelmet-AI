@@ -65,6 +65,11 @@
 
             </li>
 
+            <li onclick="location.href='history.html'">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                History
+            </li>
+
             <li onclick="location.href='reports.html'">
 
                 <i class="fa-solid fa-file-lines"></i>
@@ -225,7 +230,7 @@
             onclick="window.location.href='profile.html'"
             style="cursor:pointer;">
 
-            <img src="SmartHelmet-AI\frontend\assets\images\Profile.png" alt="Profile">
+            <img src="../assets/images/Profile.png" alt="Profile">
 
             <div>
 
@@ -303,7 +308,10 @@
 
     <!-- Total Workers -->
 
-    <div class="card" onclick="location.href='workers.html'">
+    <div
+        class="card worker-card"
+        onclick="location.href='workers.html'"
+    >
 
         <div class="card-icon blue">
 
@@ -773,5 +781,9 @@
 
 </main>
 </div>
+
+<script src="../js/api.js"></script>
+<script src="../js/dashboard.js"></script>
+
 </body>
 </html>

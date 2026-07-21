@@ -163,21 +163,6 @@ function animateCounter(id, endValue, duration = 1500) {
 
 }
 
-/* Run Counters */
-
-window.addEventListener("load", () => {
-
-    animateCounter("totalWorkers", 156);
-
-    animateCounter("helmetCompliance", 94);
-
-    animateCounter("vestCompliance", 89);
-
-    animateCounter("violations", 12);
-
-});
-
-
 /* ==========================================
    Search Cards
 ========================================== */
@@ -474,21 +459,23 @@ setInterval(refreshDashboard, 60000);
    API Ready Functions
 ========================================== */
 
-async function fetchDashboardData() {
+async function fetchDashboardData(){
 
-    try {
+    try{
 
-        const response = await fetch("http://127.0.0.1:8000/dashboard");
+        const data = await getData("/dashboard");
 
-        if (!response.ok) return;
+        animateCounter("totalWorkers", data.workers);
 
-        const data = await response.json();
+        animateCounter("helmetCompliance", data.helmet);
 
-        console.log(data);
+        animateCounter("vestCompliance", data.vest);
+
+        animateCounter("violations", data.violations);
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(error);
 

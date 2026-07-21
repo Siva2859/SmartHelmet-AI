@@ -1,3 +1,7 @@
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+}
+
 /* =====================================================
    PROFILE.JS - PART 1
    Load Profile + Upload Image + Save Profile

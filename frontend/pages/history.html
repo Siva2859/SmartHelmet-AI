@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History | SmartHelmet AI</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <h2>SmartHelmet AI</h2>
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="location.href='upload.html'">
+                <i class="fa-solid fa-upload"></i>
+                Upload Image
+            </li>
+
+            <li onclick="location.href='detection.html'">
+                <i class="fa-solid fa-user-shield"></i>
+                Detection
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                History
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </li>
+
+            <li onclick="location.href='analytics.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                Analytics
+            </li>
+
+            <li onclick="location.href='settings.html'">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <header class="dashboard-header">
+
+            <h1>Detection History</h1>
+
+            <p>View all previously detected images.</p>
+
+        </header>
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Image</th>
+
+                        <th>Workers</th>
+
+                        <th>Helmets</th>
+
+                        <th>Violations</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/history.js"></script>
+
+</body>
+
+</html>

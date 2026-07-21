@@ -1,344 +1,181 @@
 /* =====================================================
-   LOGIN.JS - PART 1
-   Login Validation + Show Password + Remember Me
+   LOGIN.JS
+   SmartHelmet AI
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initializeLogin();
+    // ============================
+    // DOM Elements
+    // ============================
 
-});
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const rememberMe = document.getElementById("rememberMe");
+    const togglePassword = document.getElementById("togglePassword");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginText = document.getElementById("loginText");
+    const loadingSpinner = document.getElementById("loadingSpinner");
+    const forgotPassword = document.getElementById("forgotPassword");
 
-/* ==========================================
-   DOM Elements
-========================================== */
+    // ============================
+    // Load Remembered Email
+    // ============================
 
-const loginForm = document.getElementById("loginForm");
+    const savedEmail = localStorage.getItem("rememberEmail");
 
-const emailInput = document.getElementById("email");
-
-const passwordInput = document.getElementById("password");
-
-const rememberMe = document.getElementById("rememberMe");
-
-const togglePassword = document.getElementById("togglePassword");
-
-const loginBtn = document.getElementById("loginBtn");
-
-const loginText = document.getElementById("loginText");
-
-const loadingSpinner = document.getElementById("loadingSpinner");
-
-
-/* ==========================================
-   Initialize
-========================================== */
-
-function initializeLogin(){
-
-    loadRememberedUser();
-
-}
-
-
-/* ==========================================
-   Show / Hide Password
-========================================== */
-
-togglePassword.addEventListener("click", () => {
-
-    if(passwordInput.type === "password"){
-
-        passwordInput.type = "text";
-
-        togglePassword.innerHTML =
-            '<i class="fa-solid fa-eye-slash"></i>';
-
-    }
-
-    else{
-
-        passwordInput.type = "password";
-
-        togglePassword.innerHTML =
-            '<i class="fa-solid fa-eye"></i>';
-
-    }
-
-});
-
-
-/* ==========================================
-   Remember User
-========================================== */
-
-function loadRememberedUser(){
-
-    const savedEmail =
-        localStorage.getItem("rememberEmail");
-
-    if(savedEmail){
-
+    if (savedEmail) {
         emailInput.value = savedEmail;
-
         rememberMe.checked = true;
-
     }
 
-}
+    // ============================
+    // Show / Hide Password
+    // ============================
 
+    if (togglePassword) {
 
-/* ==========================================
-   Login Submit
-========================================== */
+        togglePassword.addEventListener("click", () => {
 
-loginForm.addEventListener("submit", async (e)=>{
+            if (passwordInput.type === "password") {
 
-    e.preventDefault();
+                passwordInput.type = "text";
+                togglePassword.innerHTML =
+                    '<i class="fa-solid fa-eye-slash"></i>';
 
-    const email =
-        emailInput.value.trim();
+            } else {
 
-    const password =
-        passwordInput.value.trim();
-
-    if(email===""){
-
-        alert("Please enter email.");
-
-        emailInput.focus();
-
-        return;
-
-    }
-
-    if(password===""){
-
-        alert("Please enter password.");
-
-        passwordInput.focus();
-
-        return;
-
-    }
-
-    loginText.classList.add("hidden");
-
-    loadingSpinner.classList.remove("hidden");
-
-    loginBtn.disabled = true;
-
-    setTimeout(()=>{
-
-        login(email,password);
-
-    },1200);
-
-});
-
-/* ==========================================
-   Login Function
-========================================== */
-
-async function login(email,password){
-
-    /* Demo Login */
-
-    if(
-
-        email==="admin@smarthelmet.ai" &&
-
-        password==="admin123"
-
-    ){
-
-        if(rememberMe.checked){
-
-            localStorage.setItem(
-
-                "rememberEmail",
-
-                email
-
-            );
-
-        }
-
-        else{
-
-            localStorage.removeItem(
-
-                "rememberEmail"
-
-            );
-
-        }
-
-        localStorage.setItem(
-
-            "isLoggedIn",
-
-            "true"
-
-        );
-
-        localStorage.setItem(
-
-            "userName",
-
-            "Safety Officer"
-
-        );
-
-        showSuccess(
-
-            "Login Successful"
-
-        );
-
-        setTimeout(()=>{
-            window.location.href = "dashboard.html";
-
-        },1000);
-
-        return;
-
-    }
-
-    /* FastAPI Login */
-
-    try{
-
-        const response = await fetch(
-
-            "http://127.0.0.1:8000/login",
-
-            {
-
-                method:"POST",
-
-                headers:{
-
-                    "Content-Type":"application/json"
-
-                },
-
-                body:JSON.stringify({
-
-                    email,
-
-                    password
-
-                })
+                passwordInput.type = "password";
+                togglePassword.innerHTML =
+                    '<i class="fa-solid fa-eye"></i>';
 
             }
 
-        );
+        });
 
-        if(response.ok){
+    }
 
-            const data = await response.json();
+    // ============================
+    // Forgot Password
+    // ============================
 
-            if(rememberMe.checked){
+    if (forgotPassword) {
 
-                localStorage.setItem(
+        forgotPassword.addEventListener("click", (e) => {
 
-                    "rememberEmail",
+            e.preventDefault();
 
-                    email
+            alert("Please contact your administrator.");
 
+        });
+
+    }
+
+    // ============================
+    // Login Form
+    // ============================
+
+    if (loginForm) {
+
+        loginForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            // Validation
+
+            if (email === "") {
+
+                alert("Please enter your email.");
+                emailInput.focus();
+                return;
+
+            }
+
+            if (password === "") {
+
+                alert("Please enter your password.");
+                passwordInput.focus();
+                return;
+
+            }
+
+            // Loading UI
+
+            loginBtn.disabled = true;
+            loginText.style.display = "none";
+            loadingSpinner.classList.remove("hidden");
+
+            setTimeout(() => {
+
+                // ============================
+                // Demo Login
+                // ============================
+
+                if (
+                    email === "admin@smarthelmet.ai" &&
+                    password === "admin123"
+                ) {
+
+                    // Remember Email
+
+                    if (rememberMe.checked) {
+
+                        localStorage.setItem(
+                            "rememberEmail",
+                            email
+                        );
+
+                    } else {
+
+                        localStorage.removeItem(
+                            "rememberEmail"
+                        );
+
+                    }
+
+                    // Save Login Session
+
+                    localStorage.setItem(
+                        "isLoggedIn",
+                        "true"
+                    );
+
+                    localStorage.setItem(
+                        "userName",
+                        "Safety Officer"
+                    );
+
+                    localStorage.setItem(
+                        "userEmail",
+                        email
+                    );
+
+                    alert("Login Successful!");
+
+                    window.location.href = "dashboard.html";
+
+                    return;
+
+                }
+
+                // Wrong Credentials
+
+                alert(
+                    "Invalid Email or Password\n\nUse Demo Login:\n\nEmail: admin@smarthelmet.ai\nPassword: admin123"
                 );
 
-            }
+                loginBtn.disabled = false;
+                loginText.style.display = "inline";
+                loadingSpinner.classList.add("hidden");
 
-            localStorage.setItem(
+            }, 1000);
 
-                "isLoggedIn",
-
-                "true"
-
-            );
-
-            localStorage.setItem(
-
-                "token",
-
-                data.access_token || ""
-
-            );
-
-                window.location.href = "dashboard.html";
-
-        }
-
-        else{
-
-            showError(
-
-                "Invalid Email or Password"
-
-            );
-
-        }
+        });
 
     }
-
-    catch(error){
-
-        console.error(error);
-
-        showError(
-
-            "Unable to connect to server."
-
-        );
-
-    }
-
-    finally{
-
-        loginBtn.disabled=false;
-
-        loginText.classList.remove("hidden");
-
-        loadingSpinner.classList.add("hidden");
-
-    }
-
-}
-
-
-/* ==========================================
-   Alerts
-========================================== */
-
-function showSuccess(message){
-
-    alert(message);
-
-}
-
-function showError(message){
-
-    alert(message);
-
-}
-
-
-/* ==========================================
-   Forgot Password
-========================================== */
-
-document
-.getElementById("forgotPassword")
-.addEventListener("click",(e)=>{
-
-    e.preventDefault();
-
-    alert(
-
-        "Please contact your administrator to reset your password."
-
-    );
 
 });

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Workers | SmartHelmet AI</title>
+
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <h2>SmartHelmet AI</h2>
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-users"></i>
+                Workers
+            </li>
+
+            <li onclick="location.href='upload.html'">
+                <i class="fa-solid fa-upload"></i>
+                Upload
+            </li>
+
+            <li onclick="location.href='history.html'">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                History
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Detected Workers</h1>
+
+        <table id="workersTable">
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Image</th>
+
+                <th>Worker</th>
+
+                <th>Helmet</th>
+
+                <th>Vest</th>
+
+                <th>Confidence</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="workersTable">
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/workers.js"></script>
+
+</body>
+
+</html>

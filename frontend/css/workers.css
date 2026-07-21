@@ -1,0 +1,250 @@
+/* =====================================================
+   WORKERS.CSS
+   SmartHelmet AI
+===================================================== */
+
+.main-content{
+
+    flex:1;
+
+    padding:30px;
+
+    background:#f5f7fb;
+
+    min-height:100vh;
+
+}
+
+/* ===========================
+   Page Header
+=========================== */
+
+.page-header{
+
+    margin-bottom:25px;
+
+}
+
+.page-header h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.page-header p{
+
+    color:#6b7280;
+
+    margin-top:8px;
+
+}
+
+/* ===========================
+   Table Card
+=========================== */
+
+.table-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   Table
+=========================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+th{
+
+    padding:15px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid #e5e7eb;
+
+    font-size:15px;
+
+    color:#374151;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#eff6ff;
+
+}
+
+/* ===========================
+   Status
+=========================== */
+
+.safe{
+
+    color:#16a34a;
+
+    font-weight:600;
+
+}
+
+.warning{
+
+    color:#f59e0b;
+
+    font-weight:600;
+
+}
+
+.danger{
+
+    color:#dc2626;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   Search Box
+=========================== */
+
+.search-box{
+
+    margin-bottom:20px;
+
+}
+
+.search-box input{
+
+    width:350px;
+
+    padding:12px 18px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.search-box input:focus{
+
+    border-color:#2563eb;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.primary-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===========================
+   Empty State
+=========================== */
+
+.no-data{
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .main-content{
+
+        padding:15px;
+
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+    }
+
+    .search-box input{
+
+        width:100%;
+
+    }
+
+}

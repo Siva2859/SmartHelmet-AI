@@ -1,3 +1,7 @@
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+}
+
 /* =====================================================
    DETECTION.JS - PART 1
 ===================================================== */
@@ -18,6 +22,8 @@ function loadDetectionData() {
 
     const savedData = localStorage.getItem("detectionResult");
 
+    console.log("Saved Data:", savedData);
+
     if (!savedData) {
 
         console.log("No detection data found.");
@@ -28,16 +34,17 @@ function loadDetectionData() {
 
     const data = JSON.parse(savedData);
 
+    console.log("Parsed Data:", data);
+    console.log("Report:", data.report);
+
     updateImage(data);
-
     updateSummary(data);
-
     updateTable(data);
 
 }
 
 /* ==========================================
-   Display Image
+   Update Image
 ========================================== */
 
 function updateImage(data) {
@@ -46,9 +53,14 @@ function updateImage(data) {
 
     if (!image) return;
 
-    if (data.annotated_image) {
+    if (data.prediction_image) {
 
-        image.src = data.annotated_image;
+        image.src =
+            "http://127.0.0.1:8000/" + data.prediction_image;
+
+    } else {
+
+        image.src = "../assets/images/sample.jpg";
 
     }
 
@@ -60,30 +72,31 @@ function updateImage(data) {
 
 function updateSummary(data) {
 
+    const report = data.report || {};
+
     document.getElementById("workerCount").innerText =
-        data.total_workers ?? 0;
+        report.total_workers || 0;
 
     document.getElementById("helmetCount").innerText =
-        (data.helmet_percentage ?? 0) + "%";
+        report.helmet_count || 0;
 
     document.getElementById("vestCount").innerText =
-        (data.vest_percentage ?? 0) + "%";
+        report.vest_count || 0;
 
     document.getElementById("violationCount").innerText =
-        data.violations ?? 0;
+        report.violations || 0;
 
     document.getElementById("workersDetected").innerText =
-        data.total_workers ?? 0;
+        report.total_workers || 0;
 
     document.getElementById("helmetSafe").innerText =
-        data.helmet_safe ?? 0;
+        report.helmet_count || 0;
 
     document.getElementById("vestSafe").innerText =
-        data.vest_safe ?? 0;
+        report.vest_count || 0;
 
     document.getElementById("unsafeWorkers").innerText =
-        data.violations ?? 0;
-
+        report.violations || 0;
 }
 
 /* ==========================================
@@ -98,52 +111,19 @@ function updateTable(data) {
 
     tbody.innerHTML = "";
 
-    if (!data.results) return;
+    if (!data.detections) return;
 
-    data.results.forEach((worker, index) => {
+    data.detections.forEach((item, index) => {
 
         tbody.innerHTML += `
-
         <tr>
-
             <td>${index + 1}</td>
-
-            <td>${worker.name}</td>
-
-            <td>
-
-                <span class="status ${worker.helmet ? "success":"error"}">
-
-                    ${worker.helmet ? "Yes":"No"}
-
-                </span>
-
-            </td>
-
-            <td>
-
-                <span class="status ${worker.vest ? "success":"error"}">
-
-                    ${worker.vest ? "Yes":"No"}
-
-                </span>
-
-            </td>
-
-            <td>${worker.confidence}%</td>
-
-            <td>
-
-                <span class="status ${worker.safe ? "success":"warning"}">
-
-                    ${worker.safe ? "Safe":"Violation"}
-
-                </span>
-
-            </td>
-
+            <td>${item.class}</td>
+            <td>-</td>
+            <td>-</td>
+            <td>${Math.round(item.confidence * 100)}%</td>
+            <td>Detected</td>
         </tr>
-
         `;
 
     });
@@ -391,7 +371,7 @@ function showMessage(message) {
 
 window.addEventListener("load", () => {
 
-    fetchDetectionResults();
+    // fetchDetectionResults();
 
     console.log("Detection Page Ready");
 

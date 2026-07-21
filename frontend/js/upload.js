@@ -1,3 +1,7 @@
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+}
+
 /* =====================================================
    UPLOAD.JS - PART 1
 ===================================================== */
@@ -119,6 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             previewImage.src=e.target.result;
 
+            console.log("Image loaded");
+            console.log(previewImage.src);
+            console.log(previewSection.style.display);
+
             previewSection.style.display="block";
 
             fileName.innerText=file.name;
@@ -185,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData();
 
-        formData.append("image", file);
+        formData.append("file", file);
 
         progressSection.style.display = "block";
 
@@ -218,8 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             const response = await fetch(
-
-                "http://127.0.0.1:8000/upload",
+                "http://127.0.0.1:8000/detect",
 
                 {
 
@@ -244,6 +251,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const data = await response.json();
+
+            console.log(data);
+
+            localStorage.setItem(
+                "detectionResult",
+                JSON.stringify(data)
+            );
+
+            window.location.href = "detection.html";
 
             /* Save Result */
 
@@ -281,11 +297,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             statusText.className = "status error";
 
-            statusText.innerText =
+            statusText.innerText = error.message;
 
-                "Upload failed. Please try again.";
-
-            console.error(error);
+            console.error("UPLOAD ERROR:", error);
 
         }
 
